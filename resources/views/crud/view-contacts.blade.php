@@ -21,7 +21,24 @@
 <body>
 <div class="container">
     <h4>List of all Contacts</h4>
-    <a href="/crud">Add New Contact</a>
+    @if ($message = Session::get('message'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert">×</button>	
+        <strong>{{ Auth::user()->email }} {{ $message }}</strong>
+</div>
+@endif
+
+@if(isset(Auth::user()->email))
+<div class="alert alert-danger success-block">
+Welcome {{ Auth::user()->email }}
+    </div>
+    <br>
+    <a href="{{url('logout')}}">Logout</a>
+    @else
+    <script>window.location="login";</script>
+@endif
+
+    <br><br><a href="/crud">Add New Contact</a>
     <hr>
     @if(Session::get('deleted'))
             <div class="alert alert-success">

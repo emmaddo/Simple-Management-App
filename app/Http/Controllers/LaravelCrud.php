@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class LaravelCrud extends Controller
 {
@@ -16,13 +19,14 @@ function index(){
         //return $request->input();
         $request->validate([
             'name'=>'required',
-            'favoritecolor'=>'required',
-            'email'=>'required|email|unique:crud'
+           // 'favoritecolor'=>'required',
+            'email'=>'required|email|unique:users'
         ]);
-        $query= DB::table('crud')->insert([
+        $query= DB::table('users')->insert([
             'name'=>$request->input('name'),
-            'favoritecolor'=>$request->input('favoritecolor'),
-            'email'=>$request->input('email')
+           // 'favoritecolor'=>$request->input('favoritecolor'),
+            'email'=>$request->input('email'),
+            'password'=>Hash::make($request->input('password'))
         ]);
 
         if($query){
@@ -44,19 +48,19 @@ function index(){
             
             
             
-            $posts= DB::table('crud')->get();
+            $posts= DB::table('users')->get();
             //var_dump($posts);
         return view('crud.view-contacts', compact('posts'));
         }
 
     public function editPost($id){
-        $editpost= DB::table('crud')->where('id', $id)->first();
+        $editpost= DB::table('users')->where('id', $id)->first();
             return view('crud.edit-post', compact('editpost'));
             }
 
     public function updateRecords(Request $request){
         //return $request->input();
-        $upquery= DB::table('crud')->where('id', $request->id)->update([
+        $upquery= DB::table('users')->where('id', $request->id)->update([
             'id'=>$request->id,
             'name'=>$request->input('name'),
             'favoritecolor'=>$request->input('favoritecolor'),
@@ -73,7 +77,7 @@ function index(){
 
 
     public function deletePost($id){
-    $delquery= DB::table('crud')->where('id', $id)->delete();
+    $delquery= DB::table('users')->where('id', $id)->delete();
     if($delquery){
         return back()->with('deleted','Data has been successfully Deleted');
     }
