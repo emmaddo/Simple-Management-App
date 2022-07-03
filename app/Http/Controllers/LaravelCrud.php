@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 //use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Users;
 
 class LaravelCrud extends Controller
 {
@@ -20,7 +20,8 @@ function index(){
         $request->validate([
             'name'=>'required',
            // 'favoritecolor'=>'required',
-            'email'=>'required|email|unique:users'
+            'email'=>'required|email|unique:users',
+            'password'=>'required',
         ]);
         $query= DB::table('users')->insert([
             'name'=>$request->input('name'),
@@ -29,12 +30,14 @@ function index(){
             'password'=>Hash::make($request->input('password'))
         ]);
 
-        if($query){
-            return back()->with('success','Data has been successfully inserted into database');
-        }
-        else{
-            return back()->with('fail','Something went wrong');
-        }
+        $users = new Users();
+        $users->name=$request->input('name');
+        $users->email=$request->input('email');
+        $users->password=$request->input('password');
+        //$users->save();
+        
+        
+        return back()->with('success','User Created Successfully');
         }
 
         //this function is to fetch all contacts from crud table and display
