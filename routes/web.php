@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LaravelCrud;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -19,15 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('crud', [LaravelCrud::class, 'index']);
-Route::post('add', [LaravelCrud::class, 'add']);
-Route::post('update-records', [LaravelCrud::class, 'updateRecords']);
+Route::get('Admin', [MainController::class, 'index']);
+Route::post('add', [MainController::class, 'add']);
+Route::post('update-records', [MainController::class, 'updateRecords']);
 Route::post('checklogin', [UserController::class, 'checklogin']);
-Route::get('view-contacts', [LaravelCrud::class, 'viewContact']);
-Route::get('edit-post/{id}', [LaravelCrud::class, 'editPost']);
-Route::get('delete-post/{id}', [LaravelCrud::class, 'deletePost']);
+Route::get('view-contacts', [MainController::class, 'viewContact']);
+Route::get('edit-post/{id}', [MainController::class, 'editPost']);
+Route::get('delete-post/{id}', [MainController::class, 'deletePost']);
+Route::get('Dashboard', [MainController::class, 'adminDashboard']);
 Route::get('login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
-//Route::post('add', 'App\Http\Controllers\LaravelCrud@add');
+//Route::post('add', 'App\Http\Controllers\MainController@add');
 
 
