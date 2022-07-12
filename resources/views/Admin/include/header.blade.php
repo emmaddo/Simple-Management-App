@@ -68,8 +68,25 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header">
-              <h5 class="mt-0 mb-0">{{ Auth::user()->name }}</h5>
-              <span>{{ Auth::user()->email }}</span>
+              <h5 class="mt-0 mb-0">
+                
+@if(isset(Auth::user()->email))
+{{ Auth::user()->name }}
+@else
+<script>window.location="login";</script>
+@endif
+
+              
+            
+            </h5>
+              <span>
+              @if(isset(Auth::user()->email))
+{{ Auth::user()->email }}
+@else
+<script>window.location="login";</script>
+@endif
+              
+              </span>
             </div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>

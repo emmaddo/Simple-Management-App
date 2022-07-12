@@ -58,7 +58,7 @@
 @if(isset(Auth::user()->email))
 Welcome {{ Auth::user()->email }}
 @else
-<script>window.location="login";</script>
+    <script>window.location="login";</script>
 @endif
 
               </h4>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [FrontController::class, 'index']);
 Route::get('Admin', [MainController::class, 'index']);
 Route::post('add', [MainController::class, 'add']);
 Route::post('update-records', [MainController::class, 'updateRecords']);
