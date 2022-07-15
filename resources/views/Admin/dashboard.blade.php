@@ -84,12 +84,12 @@ Welcome {{ Auth::user()->email }}
                   </div>
                   <div class="float-end text-end">
                     <p class="card-text text-dark">Customers</p>
-                    <h4>{{ $customerCount }}</h4>
+                    <h4></h4>
                   </div>
                 </div>
-                <p class="text-muted pt-3 mb-0 mt-2 border-top">
+               <!-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                   <i class="fa fa-exclamation-circle me-1" aria-hidden="true"></i> 81% lower growth
-                </p>
+                </p>-->
               </div>
             </div>
           </div>
@@ -139,12 +139,12 @@ Welcome {{ Auth::user()->email }}
                 <div class="clearfix">
                   <div class="float-start">
                     <span class="text-primary">
-                      <i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
+                    <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
                     </span>
                   </div>
                   <div class="float-end text-end">
-                    <p class="card-text text-dark">Followers</p>
-                    <h4>62,500+</h4>
+                    <p class="card-text text-dark">Total Expenses</p>
+                    <h4>{{$totalExpenses}}</h4>
                   </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">

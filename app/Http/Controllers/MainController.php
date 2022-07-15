@@ -244,14 +244,17 @@ return view('Admin.RegCustomer', compact('posts'));
     }
 
 //count all customers in database
-    public function customer() {
+  /*  public function customerCount() {
         $customerCount = customer::count();
-        /*
-        $customerCount = customer::
-        where('status', 'activated')
-            ->count();*/
+        
         return view('Admin.dashboard', compact('customerCount'));
   }
+*/
+    
+  public function totalExpenses() {
+    $totalExpenses = DB::table('Expenses')->sum('amount');
+    return view('Admin.dashboard', compact('totalExpenses'));
+}
 }
 
 
