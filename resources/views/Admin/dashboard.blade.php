@@ -84,12 +84,12 @@ Welcome {{ Auth::user()->email }}
                   </div>
                   <div class="float-end text-end">
                     <p class="card-text text-dark">Customers</p>
-                    <h4></h4>
+                    <h4>{{ $customerCount }}</h4>
                   </div>
                 </div>
-               <!-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                  <i class="fa fa-exclamation-circle me-1" aria-hidden="true"></i> 81% lower growth
-                </p>-->
+               <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                  <i class="fa fa-exclamation-circle me-1" aria-hidden="true"></i> Total Customers
+                </p>
               </div>
             </div>
           </div>

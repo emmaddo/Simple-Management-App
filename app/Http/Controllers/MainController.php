@@ -243,18 +243,15 @@ return view('Admin.RegCustomer', compact('posts'));
 
     }
 
-//count all customers in database
-  /*  public function customerCount() {
+public function customerCount() {
         $customerCount = customer::count();
-        
-        return view('Admin.dashboard', compact('customerCount'));
-  }
-*/
+        $totalExpenses = DB::table('Expenses')->sum('amount');
     
-  public function totalExpenses() {
-    $totalExpenses = DB::table('Expenses')->sum('amount');
-    return view('Admin.dashboard', compact('totalExpenses'));
-}
+        return view('Admin.dashboard', compact('customerCount', 'totalExpenses'));
+      }
+
+    
+  
 }
 
 
