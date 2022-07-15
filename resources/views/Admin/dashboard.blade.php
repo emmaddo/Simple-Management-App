@@ -83,8 +83,8 @@ Welcome {{ Auth::user()->email }}
                     </span>
                   </div>
                   <div class="float-end text-end">
-                    <p class="card-text text-dark">Visitors</p>
-                    <h4>65,650</h4>
+                    <p class="card-text text-dark">Customers</p>
+                    <h4>{{ $customerCount }}</h4>
                   </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
