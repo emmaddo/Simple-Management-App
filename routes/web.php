@@ -39,7 +39,6 @@ Route::get('edit-post/{id}', [MainController::class, 'editPost']);
 Route::get('delete-post/{id}', [MainController::class, 'deletePost']);
 Route::get('Dashboard', [MainController::class, 'adminDashboard']);
 Route::get('Dashboard', [MainController::class, 'customerCount']);
-//Route::get('Dashboard', [MainController::class, 'totalExpenses']);
 Route::get('login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
 //Route::post('add', 'App\Http\Controllers\MainController@add');

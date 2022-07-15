@@ -242,7 +242,7 @@ return view('Admin.RegCustomer', compact('posts'));
     }
 
     }
-
+//combining both queries into one method
 public function customerCount() {
         $customerCount = customer::count();
         $totalExpenses = DB::table('Expenses')->sum('amount');

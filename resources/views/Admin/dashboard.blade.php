@@ -88,7 +88,7 @@ Welcome {{ Auth::user()->email }}
                   </div>
                 </div>
                <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                  <i class="fa fa-exclamation-circle me-1" aria-hidden="true"></i> Total Customers
+                  <i class="fa fa-exclamation-circle me-1" aria-hidden="true"></i> Total Registerd Customers
                 </p>
               </div>
             </div>
