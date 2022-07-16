@@ -10,6 +10,7 @@ use App\Models\Users;
 use App\Models\customer;
 use App\Models\Product;
 use App\Models\Expenses;
+use App\Models\Sales;
 
 class MainController extends Controller
 {
@@ -243,15 +244,16 @@ return view('Admin.RegCustomer', compact('posts'));
 
     }
 //combining both queries into one method
-public function customerCount() {
+public function adminDashboardSupply() {
         $customerCount = customer::count();
         $totalExpenses = DB::table('Expenses')->sum('amount');
-    
-        return view('Admin.dashboard', compact('customerCount', 'totalExpenses'));
-      }
-
-    
-  
+        $totalCompletedSales = DB::table('Sales')->where('status', 'paid')->sum('amount');
+        $posts= DB::table('customer')->orderBy('id', 'DESC')->get();
+        //Both Line 251 and commented Line 253 are the same and will both work fine
+        //$posts= customer::orderBy('id', 'DESC')->get();
+        $pendingOrder = Sales::where('status', 'pending')->count();
+        return view('Admin.dashboard', compact('customerCount', 'totalExpenses', 'posts', 'totalCompletedSales', 'pendingOrder'));
+    }
 }
 
 

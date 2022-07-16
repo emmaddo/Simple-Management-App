@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 15, 2022 at 12:25 PM
+-- Generation Time: Jul 16, 2022 at 09:49 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -186,6 +186,32 @@ INSERT INTO `product` (`id`, `name`, `price`, `description`, `status`, `datetime
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `id` int(20) NOT NULL,
+  `productname` varchar(50) NOT NULL,
+  `buyername` varchar(50) NOT NULL,
+  `buyeremail` varchar(50) NOT NULL,
+  `amount` varchar(50) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `datetime` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `productname`, `buyername`, `buyeremail`, `amount`, `status`, `datetime`) VALUES
+(1, 'Maprolen Bottle Water Pack', 'Owookade Oluwaseun', 'owowumi4all@gmail.com', '2800', 'pending', '2022-07-16'),
+(2, 'Maprolen Nylon', 'Owookade Oluwaseun', 'owowumi4all@gmail.com', '4000', 'paid', '2022-07-16'),
+(3, 'Maprolen Bottle Water Pack', 'Owookade Oluwaseun', 'owowumi4all@gmail.com', '2800', 'pending', '2022-07-16'),
+(4, 'Maprolen Nylon', 'Owookade Oluwaseun', 'owowumi4all@gmail.com', '3000', 'paid', '2022-07-16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -267,6 +293,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -318,6 +350,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `product`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

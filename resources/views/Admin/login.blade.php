@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="Maprolen" />
+<meta name="description" content="Maprolen" />
+<meta name="author" content="ermsapp@gmail.com" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Login::Maprolen</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.ico" />
+
+<!-- Font -->
+<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
 </head>
+
 <body>
-  <div class="container" style="margin-top:50px">
-  <h4>LOGIN</h4>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <hr>
+
+  <div class="wrapper">
+
+    <!--=================================
+    preloader -->
+    <div id="pre-loader">
+      <img src="images/pre-loader/loader-01.svg" alt="">
+    </div>
+    <!--=================================
+    preloader -->
+
+    <!--=================================
+    login-->
+    <section class="height-100vh d-flex align-items-center page-section-ptb login" style="background-image: url(images/login-bg.jpg);" >
+      <div class="container">
+        <div class="row justify-content-center g-0 vertical-align">
+          <div class="col-lg-4 col-md-6 login-fancy-bg bg" style="background-image: url(images/login-inner-bg.jpg);">
+            <div class="login-fancy">
+              <h2 class="text-white mb-20">Maprolen</h2>
+              <p class="mb-20 text-white">Welcome to Maprolen Water and Nylon Factory</p>
+             <!-- <ul class="list-unstyled  pos-bot pb-30">
+                <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>
+                <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>
+              </ul>-->
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 bg-white">
+            <div class="login-fancy pb-40 clearfix">
+              <h3 class="mb-30">Sign In To Admin</h3>
+              <hr>
           @if(isset(Auth::user()->email))
-<script>window.location="view-contacts";</script>
+<script>window.location="Dashboard";</script>
   @endif
 
           @if(Session::get('success'))
@@ -30,29 +69,86 @@
             {{session::get('fail')}}
             </div>
           @endif
-            <form action="checklogin" method="post">
-              @csrf
-                   
+              <form action="checklogin" method="post">
+                @csrf
+              <div class="section-field mb-20">
+                <label class="mb-10" for="name">Email* </label>
+                <input id="name" name="email" class="web form-control" type="email" placeholder="Enter Email" required>
+                <span style="color:red">@error('email'){{$message}} @enderror</span> 
+              </div>
+              <div class="section-field mb-20">
+                <label class="mb-10" for="Password">Password* </label>
+                <input id="Password" class="Password form-control" type="password" placeholder="Enter Password" name="password" required>
+                <span style="color:red">@error('password'){{$message}} @enderror</span>
+              </div>
+              <div class="section-field">
+                <div class="remember-checkbox mb-30">
+                  <input type="checkbox" class="form-control" name="" />
+                  <label for="two"> Remember me</label>
+                  <a href="#" class="float-end">Forgot Password?</a>
+                </div>
+              </div>
 
-                   <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Enter Email">
-                    <span style="color:red">@error('email'){{$message}} @enderror</span> 
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
-                    <span style="color:red">@error('password'){{$message}} @enderror</span> 
-                  </div>
-
-                   <div class="form-group">
-                    <button type="submit" clase="btn btn-primary btn-block">Login</button>
-                   </div>
+              
+                   <button type="submit" class="button">Login</button><i class="fa fa-check"></i>
+                  
+             <!-- <a href="#" class="button">
+                <span>Log in</span>
+                <i class="fa fa-check"></i>
+              </a>-->
             </form>
+              <p class="mt-20 mb-0">Don't have an account? <a href="#"> Create one here</a></p>
+            </div>
+          </div>
         </div>
-    </div>
-  </div>  
+      </div>
+    </section>
+    <!--=================================
+    login-->
+  </div>
+
+  <!--=================================
+   jquery -->
+
+  <!-- jquery -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+
+  <!-- plugins-jquery -->
+  <script src="js/plugins-jquery.js"></script>
+
+  <!-- plugin_path -->
+  <script>var plugin_path = 'js/index.html';</script>
+
+  <!-- chart -->
+  <script src="js/chart-init.js"></script>
+
+  <!-- calendar -->
+  <script src="js/calendar.init.js"></script>
+
+  <!-- charts sparkline -->
+  <script src="js/sparkline.init.js"></script>
+
+  <!-- charts morris -->
+  <script src="js/morris.init.js"></script>
+
+  <!-- datepicker -->
+  <script src="js/datepicker.js"></script>
+
+  <!-- sweetalert2 -->
+  <script src="js/sweetalert2.js"></script>
+
+  <!-- toastr -->
+  <script src="js/toastr.js"></script>
+
+  <!-- validation -->
+  <script src="js/validation.js"></script>
+
+  <!-- lobilist -->
+  <script src="js/lobilist.js"></script>
+
+  <!-- custom -->
+  <script src="js/custom.js"></script>
+
 </body>
+
 </html>

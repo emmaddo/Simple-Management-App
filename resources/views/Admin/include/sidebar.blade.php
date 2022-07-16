@@ -31,7 +31,7 @@
               </a>
               <ul id="calendar-menu" class="collapse" data-bs-parent="#sidebarnav">
                 <li> <a href="RegProducts">View/Add Products </a> </li>
-                <li> <a href="calendar-list.html">List Calendar</a> </li>
+               <!-- <li> <a href="calendar-list.html">List Calendar</a> </li>-->
               </ul>
             </li>
             <!-- menu item todo-->

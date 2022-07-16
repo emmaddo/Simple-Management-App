@@ -56,7 +56,7 @@
             <div class="col-sm-6">
               <h4 class="mb-0"> 
 @if(isset(Auth::user()->email))
-Welcome {{ Auth::user()->email }}
+Welcome {{ Auth::user()->name }}
 @else
     <script>window.location="login";</script>
 @endif
@@ -65,7 +65,7 @@ Welcome {{ Auth::user()->email }}
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
-                <li class="breadcrumb-item"><a href="index.html" class="default-color">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
                 
               </ol>
             </div>
@@ -84,7 +84,7 @@ Welcome {{ Auth::user()->email }}
                   </div>
                   <div class="float-end text-end">
                     <p class="card-text text-dark">Customers</p>
-                    <h4>{{ $customerCount }}</h4>
+                    <h6>{{ $customerCount }}</h6>
                   </div>
                 </div>
                <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -103,13 +103,14 @@ Welcome {{ Auth::user()->email }}
                     </span>
                   </div>
                   <div class="float-end text-end">
-                    <p class="card-text text-dark">Orders</p>
-                    <h4>656</h4>
+                    <p class="card-text text-dark">Pending Orders</p>
+                    <h6>{{$pendingOrder}}</h6>
                   </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                  <i class="fa fa-bookmark-o me-1" aria-hidden="true"></i> Total sales
+                  <i class="fa fa-bookmark-o me-1" aria-hidden="true"></i> No. of Pending Orders
                 </p>
+                <h6></h6>
               </div>
             </div>
           </div>
@@ -123,8 +124,8 @@ Welcome {{ Auth::user()->email }}
                     </span>
                   </div>
                   <div class="float-end text-end">
-                    <p class="card-text text-dark">Revenue</p>
-                    <h4>$65656</h4>
+                    <p class="card-text text-dark">Total Sales</p>
+                    <h6>{{number_format($totalCompletedSales,2)}}</h6>
                   </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -144,7 +145,7 @@ Welcome {{ Auth::user()->email }}
                   </div>
                   <div class="float-end text-end">
                     <p class="card-text text-dark">Total Expenses</p>
-                    <h4>{{$totalExpenses}}</h4>
+                    <h6>{{number_format($totalExpenses,2)}}</h6>
                   </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -163,27 +164,10 @@ Welcome {{ Auth::user()->email }}
                 <button type="button" class="dropdown-toggle-split text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#"><i class="text-primary ti-reload"></i>Refresh</a>
-                  <a class="dropdown-item" href="#"><i class="text-secondary ti-eye"></i>View all</a>
+                  <a class="dropdown-item" href="ViewRegCustomer"><i class="text-secondary ti-eye"></i>View all</a>
                 </div>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Market summary</h5>
-                <h4>$50,500 </h4>
-                <div class="row mt-20">
-                  <div class="col-4">
-                    <h6>Apple</h6>
-                    <b class="text-info">+ 82.24 % </b>
-                  </div>
-                  <div class="col-4">
-                    <h6>Instagram</h6>
-                    <b class="text-danger">- 12.06 % </b>
-                  </div>
-                  <div class="col-4">
-                    <h6>Google</h6>
-                    <b class="text-warning">+ 24.86 % </b>
-                  </div>
-                </div>
-              </div>
+              
               <div id="sparkline2" class="scrollbar-x text-center"></div>
             </div>
           </div>
@@ -193,7 +177,7 @@ Welcome {{ Auth::user()->email }}
                 <button type="button" class="dropdown-toggle-split text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#"><i class="text-primary ti-reload"></i>Refresh</a>
-                  <a class="dropdown-item" href="#"><i class="text-secondary ti-eye"></i>View all</a>
+                  <a class="dropdown-item" href="ViewRegCustomer"><i class="text-secondary ti-eye"></i>View all</a>
                 </div>
               </div>
               
@@ -201,7 +185,7 @@ Welcome {{ Auth::user()->email }}
           <div class="col-xl-4 mb-20">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title">Customer Feedback  </h5>
+                <h5 class="card-title">Weekly Sales</h5>
                 <div class="row mb-30">
                   <div class="col-md-6">
                     <div class="clearfix">
@@ -224,11 +208,11 @@ Welcome {{ Auth::user()->email }}
                     <h4 class="mt-10 text-danger">3251</h4>
                   </div>
                 </div>
-                <div class="chart-wrapper" style="width: 100%; margin: 0 auto;">
+                <!--<div class="chart-wrapper" style="width: 100%; margin: 0 auto;">
                   <div id="canvas-holder">
                     <canvas id="canvas3" width="550"></canvas>
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
@@ -236,15 +220,15 @@ Welcome {{ Auth::user()->email }}
                     <div class="active-user">
                       <div class="row">
                         <div class="col-md-4">
-                          <h5>Right now </h5>
-                          <span class="text-danger">9</span>
+                          <h5>Today</h5>
+                          <span class="text-danger">2</span>
                         </div>
                         <div class="col-md-8">
-                          <h5>Active users on site</h5>
-                          <div class="clearfix">
+                          <h5>Five Most Recent Customers</h5>
+                         <!-- <div class="clearfix">
                             <p class="mb-10 float-start">Desktop </p>
                             <p class="mb-10 float-end">Mobile</p>
-                          </div>
+                          </div>-->
                           <div class="progress progress-small">
                             <div class="skill2-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                             <div class="skill2-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -256,28 +240,24 @@ Welcome {{ Auth::user()->email }}
                       <table class="table center-aligned-table">
                         <thead>
                           <tr class="text-dark">
-                            <th>No </th>
-                            <th>Contrary </th>
-                            <th>2016</th>
-                            <th>2017</th>
-                            <th>Change</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Date</th>
                           </tr>
                         </thead>
                         <tbody>
+                          @foreach($posts as $post)
                           <tr>
-                            <td><i class="fa fa-circle text-success"></i></td>
-                            <td>USA</td>
-                            <td>2,009 </td>
-                            <td>5,230</td>
-                            <td>8.01% <i class="fa fa-level-up text-success"></i></td>
+                            <td>{{$post->id}}</td>
+                            <td>{{$post->name}}</td>
+                            <td>{{$post->email}}</td>
+                            <td>{{$post->status}}</td>
+                            <td>{{$post->datetime}}</td>
                           </tr>
-                          <tr>
-                            <td><i class="fa fa-circle text-info"></i></td>
-                            <td>India</td>
-                            <td>2,609</td>
-                            <td>2,430</td>
-                            <td>7.01% <i class="fa fa-level-down text-warning"></i></td>
-                          </tr>
+                          @endforeach
+                         
                         </tbody>
                       </table>
                     </div>
