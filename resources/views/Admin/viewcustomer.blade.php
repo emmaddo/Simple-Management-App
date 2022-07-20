@@ -11,13 +11,14 @@
 <title>All Customers</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="shortcut icon" href="{{asset('../images/favicon.ico')}}" />
 
 <!-- Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<link rel="stylesheet" type="text/css" href="{{asset('../css/style.css')}}" />
 
 </head>
 
@@ -28,7 +29,7 @@
     <!--=================================
     preloader -->
             <div id="pre-loader">
-      <img src="images/pre-loader/loader-01.svg" alt="">
+      <img src="{{asset('../images/pre-loader/loader-01.svg')}}" alt="">
     </div>
     <!--=================================
     preloader -->
@@ -55,6 +56,19 @@
                 <div class="d-block d-md-flex justify-content-between">
                   <div class="d-block">
                     <h5 class="card-title pb-0 border-0">All Products</h5>
+                    @if(Session::get('success'))
+            <div class="alert alert-success">
+
+            {{Session::get('success')}}
+            </div>
+          @endif
+
+          @if(session::get('fail'))
+            <div class="alert alert-danger">
+
+            {{session::get('fail')}}
+            </div>
+          @endif
                   </div>
                   <div class="d-block d-md-flex clearfix sm-mt-20">
                     <div class="clearfix">
@@ -103,7 +117,7 @@
   </td>
   <td>{{$post->phone}}</td>
   <td>{{$post->status}}</td>
-  <td><a class="pe-2" href="#"> <i class="fa fa-pencil"></i></a> <a href="#"> <i class="fa fa-trash-o text-danger"></i></a></td>
+  <td><a class="pe-2" href="{{url('Admin/edit-post/'.$post->id)}}"> <i class="fa fa-pencil"></i></a> <a href="{{url('Admin/delete-post/'.$post->id)}}"> <i class="fa fa-trash-o text-danger"></i></a></td>
 </tr>
 @endforeach
                       
@@ -145,43 +159,41 @@
   jquery -->
 
   <!-- jquery -->
-  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="{{asset('../js/jquery-3.6.0.min.js')}}"></script>
 
   <!-- plugins-jquery -->
-  <script src="js/plugins-jquery.js"></script>
+  <script src="{{asset('../js/plugins-jquery.js')}}"></script>
 
   <!-- plugin_path -->
   <script>var plugin_path = 'js/index.html';</script>
 
   <!-- chart -->
-  <script src="js/chart-init.js"></script>
+  <script src="{{asset('../js/chart-init.js')}}"></script>
 
   <!-- calendar -->
-  <script src="js/calendar.init.js"></script>
+  <script src="{{asset('../js/calendar.init.js')}}"></script>
 
   <!-- charts sparkline -->
-  <script src="js/sparkline.init.js"></script>
-
+  <script src="{{asset('../js/sparkline.init.js')}}"></script>
   <!-- charts morris -->
-  <script src="js/morris.init.js"></script>
+  <script src="{{asset('../js/morris.init.js')}}"></script>
 
   <!-- datepicker -->
-  <script src="js/datepicker.js"></script>
+  <script src="{{asset('../js/datepicker.js')}}"></script>
 
   <!-- sweetalert2 -->
-  <script src="js/sweetalert2.js"></script>
+  <script src="{{asset('../js/sweetalert2.js')}}"></script>
 
   <!-- toastr -->
-  <script src="js/toastr.js"></script>
+  <script src="{{asset('../js/toastr.js')}}"></script>
 
   <!-- validation -->
-  <script src="js/validation.js"></script>
+  <script src="{{asset('../js/validation.js')}}"></script>
 
   <!-- lobilist -->
-  <script src="js/lobilist.js"></script>
-
+  <script src="{{asset('../js/lobilist.js')}}"></script>
   <!-- custom -->
-  <script src="js/custom.js"></script>
+  <script src="{{asset('../js/custom.js')}}"></script>
 
 </body>
 

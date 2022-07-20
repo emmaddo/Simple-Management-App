@@ -211,20 +211,21 @@ return view('Admin.RegCustomer', compact('posts'));
 
 
     public function editPost($id){
-        $editpost= DB::table('users')->where('id', $id)->first();
-            return view('Admin.edit-post', compact('editpost'));
+        $editpost= DB::table('customer')->where('id', $id)->first();
+            return view('Admin.editcustomer', compact('editpost'));
             }
 
     public function updateRecords(Request $request){
         //return $request->input();
-        $upquery= DB::table('users')->where('id', $request->id)->update([
+        //var_dump($request);
+        $upquery= DB::table('customer')->where('id', $request->id)->update([
             'id'=>$request->id,
             'name'=>$request->input('name'),
-            'favoritecolor'=>$request->input('favoritecolor'),
-            'email'=>$request->input('email')
+           // 'email'=>$request->input('email'),
+            'phone'=>$request->input('phone')
         ]); 
         if($upquery){
-            return back()->with('success','Data has been successfully updated');
+            return back()->with('success','Customer Data Updated Successfully');
         }
         else{
             return back()->with('fail','Something went wrong');
@@ -234,9 +235,9 @@ return view('Admin.RegCustomer', compact('posts'));
 
 
     public function deletePost($id){
-    $delquery= DB::table('users')->where('id', $id)->delete();
+    $delquery= DB::table('customer')->where('id', $id)->delete();
     if($delquery){
-        return back()->with('deleted','Data has been successfully Deleted');
+        return back()->with('deleted','Customer Data Deleted Sussessfully');
     }
     else{
         return back()->with('notedeleted','Something went wrong');

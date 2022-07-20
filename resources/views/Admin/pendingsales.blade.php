@@ -56,7 +56,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
-                <li class="breadcrumb-item"><a href="Dashboard" class="default-color">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('Admin/Dashboard')}}" class="default-color">Dashboard</a></li>
                 
               </ol>
             </div>

@@ -4,7 +4,7 @@
           <ul class="nav navbar-nav side-menu" id="sidebarnav">
             <!-- menu item Dashboard-->
             <li>
-              <a href="Dashboard"><i class="ti-home"></i><span class="right-nav-text">Dashboard</span> </a>
+              <a href="{{url('Admin/Dashboard')}}"><i class="ti-home"></i><span class="right-nav-text">Dashboard</span> </a>
             </li>
             
             
@@ -15,11 +15,12 @@
                 <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
               </a>
               <ul id="elements" class="collapse" data-bs-parent="#sidebarnav">
-                <li><a href="RegAdmin">Register Admin</a></li>
-                <li><a href="RegCustomer">Register Customer</a></li>
-                <li><a href="ViewRegAdmin">View Admins</a></li>
-                <li><a href="ViewRegCustomer">View Customers</a></li>
-                <li><a href="RegExpenses">Make Expenses</a></li>
+              
+                <li><a href="{{url('Admin/RegAdmin')}}">Register Admin</a></li>
+                <li><a href="{{url('Admin/RegCustomer')}}">Register Customer</a></li>
+                <li><a href="{{url('Admin/ViewRegAdmin')}}">View Admins</a></li>
+                <li><a href="{{url('Admin/ViewRegCustomer')}}">View Customers</a></li>
+                <li><a href="{{url('Admin/RegExpenses')}}">Make Expenses</a></li>
                
               </ul>
             </li>
@@ -30,8 +31,8 @@
                 <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
               </a>
               <ul id="calendar-menu" class="collapse" data-bs-parent="#sidebarnav">
-                <li> <a href="RegProducts">View/Add Products </a> </li>
-               <!-- <li> <a href="calendar-list.html">List Calendar</a> </li>-->
+                <li> <a href="{{url('Admin/RegProducts')}}">View/Add Products </a> </li>
+                
               </ul>
             </li>
             <!-- menu item todo-->
@@ -43,8 +44,8 @@
                 <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
               </a>
               <ul id="font-icon" class="collapse" data-bs-parent="#sidebarnav">
-                <li> <a href="completedsales">Completed Sales</a> </li>
-                <li> <a href="pendingsales">Pending Sales</a> </li>
+                <li> <a href="#">Completed Sales</a> </li>
+                <li> <a href="#">Pending Sales</a> </li>
                 
               </ul>
             </li>
@@ -55,9 +56,9 @@
                 <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
               </a>
               <ul id="chart" class="collapse" data-bs-parent="#sidebarnav">
-                <li> <a href="salesreport">Sales Report</a> </li>
-                <li> <a href="pendingreport">Pending Sales Report</a> </li>
-                <li> <a href="expensesreport">Expenses Report</a> </li>
+                <li> <a href="#">Sales Report</a> </li>
+                <li> <a href="#">Pending Sales Report</a> </li>
+                <li> <a href="#">Expenses Report</a> </li>
               </ul>
             </li>
 

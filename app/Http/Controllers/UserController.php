@@ -27,7 +27,7 @@ class UserController extends Controller
 
     if(Auth::attempt($user_data)){
         Session::flash('message', 'You have successfully logged in');
-return redirect('Dashboard');
+return redirect('Admin/Dashboard');
     }
     else{
 return back()->with('fail', 'Wrong Login Details');
@@ -38,14 +38,14 @@ return back()->with('fail', 'Wrong Login Details');
 
     public function login(Request $request){
        
-       return view('Admin.login');
+       return view('Admin/login');
 
     }
 
 
     public function logout(){
       Auth::logout(); 
-      return redirect('login');
+      return redirect('Admin/login');
     }
 }
 

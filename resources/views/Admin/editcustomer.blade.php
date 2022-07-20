@@ -8,7 +8,7 @@
 <meta name="description" content="Webmin - Bootstrap 5 & Angular 5 Admin Dashboard Template" />
 <meta name="author" content="potenzaglobalsolutions.com" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Make Expenses</title>
+<title>Edit Customer</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{asset('../images/favicon.ico')}}" />
@@ -51,7 +51,7 @@
           <div class="row">
             <div class="col-sm-6">
               <h4 class="mb-0"> 
-            Make Expenses
+            Edit Customer
 
               </h4>
             </div>
@@ -64,11 +64,11 @@
           </div>
         </div>
         <div class="row">
-        <div class="col-xl-6 mb-30">
+        <div class="col-xl-12 mb-30">
 
         <div class="card card-statistics mb-30">
               <div class="card-body">
-                <h5 class="card-title">Make Expenses</h5>
+                <h5 class="card-title">Register Customer</h5>
                 @if(Session::get('success'))
             <div class="alert alert-success">
 
@@ -82,100 +82,32 @@
             {{session::get('fail')}}
             </div>
           @endif
-                <form method="POST" action="/postexpenses">
+                <form method="POST" action="/Admin/update-records/{{$editpost->id}}">
                    @csrf 
                   <div class="mb-3">
-                    <label class="form-label" for="exampleInputEmail1">Expenses Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Expenses Name">
+                    <label class="form-label" for="exampleInputEmail1">Email Address</label>
+                    <input type="email" name="email" value="{{$editpost->email}}" class="form-control" aria-describedby="emailHelp" readonly>
  </div>
                   
-                  <div class="mb-3">
-                    <label class="form-label" for="exampleInputPassword1">Amount</label>
-                    <input type="price" name="amount" class="form-control" placeholder="Enter Amount">
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label" for="exampleInputPassword1">Expenses Date</label>
-                    <input type="date" name="expdate" class="form-control" placeholder="Enter Expenses Date">
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label" for="exampleInputPassword1">Description</label>
-                    <input type="text" name="description" class="form-control" placeholder="Enter Expenses Description">
-                  </div>
-
                  
+
+                  <div class="mb-3">
+                    <label class="form-label" for="exampleInputPassword1">Customer Name</label>
+                    <input type="text" name="name" value="{{$editpost->name}}" class="form-control" placeholder="Enter Customer Name">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="exampleInputPassword1">Customer Phone Number</label>
+                    <input type="text" name="phone" value="{{$editpost->phone}}" class="form-control" placeholder="Enter Customer Phone Number">
+                  </div>
                   
-                  <button type="submit" class="btn btn-primary">Make Expenses</button>
+                  <button type="submit" class="btn btn-primary">Edit Customer</button>
                 </form>
               </div>
             </div>
 </div>
 
 
-<div class="col-xl-6 mb-30">
-
-<div class="card card-statistics h-100">
-              <div class="card-body">
-                <div class="d-block d-md-flex justify-content-between">
-                  <div class="d-block">
-                    <h5 class="card-title pb-0 border-0">All Expenses</h5>
-                  </div>
-                  <div class="d-block d-md-flex clearfix sm-mt-20">
-                    <div class="clearfix">
-                      <div class="box">
-                        <select class="fancyselect sm-mb-20 mr-20">
-                          <option value="1">Some option</option>
-                          <option value="2">Another option</option>
-                          <option value="3">A option</option>
-                          <option value="4">Potato</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="widget-search ms-0 clearfix">
-                      <i class="fa fa-search"></i>
-                      <input type="search" class="form-control" placeholder="Search....">
-                    </div>
-                  </div>
-                </div>
-                <div class="table-responsive mt-20">
-                  <table class="table center-aligned-table">
-                    <thead>
-                      <tr class="text-dark">
-                      <th>SN</th>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        
-
-
-
-                        
-                        
-                        <th>  </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($posts as $post)
-
-                      <tr>
-                       <!-- <td> <img class="img-fluid avatar-small" src="images/team/05.jpg" alt=""> </td>-->
-                       <td>{{$post->id}}</td>
-                       <td>{{$post->name}}</td>
-                        
-                        <td>
-                          <span class="text-warning">{{$post->amount}}</span>
-                        </td>
-                        <td>{{$post->expdate}}</td>
-                        
-                        <td><a class="pe-2" href="#"> <i class="fa fa-pencil"></i></a> <a href="#"> <i class="fa fa-trash-o text-danger"></i></a></td>
-                      </tr>
-                      @endforeach
-                      
-                      
-                    </tbody>
-                  </table>
-                </div>
                 <div class="sm-mt-20">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">

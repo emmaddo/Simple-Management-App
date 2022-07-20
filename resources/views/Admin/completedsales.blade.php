@@ -8,7 +8,7 @@
 <meta name="description" content="Webmin - Bootstrap 5 & Angular 5 Admin Dashboard Template" />
 <meta name="author" content="potenzaglobalsolutions.com" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Webmin - Bootstrap 5 & Angular 5 Admin Dashboard Template</title>
+<title>Completed Sales</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -56,7 +56,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
-                <li class="breadcrumb-item"><a href="Dashboard" class="default-color">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('Admin/Dashboard')}}" class="default-color">Dashboard</a></li>
                 
               </ol>
             </div>
