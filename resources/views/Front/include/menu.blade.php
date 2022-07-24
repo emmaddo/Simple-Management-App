@@ -1,78 +1,79 @@
-<!-- main header -->
-<header class="main-header">
-        <div class="outer-container">
-            <div class="header-upper clearfix">
-                <div class="upper-left pull-left clearfix">
-                    <figure class="logo-box"><a href="index.html"><img src="front/images/logo.png" alt=""></a></figure>
-                    
-                    <div class="info-box">
-                        <div class="box">
-                            <div class="icon-box"><i class="flaticon-telephone"></i></div>
-                            <div class="text">Get Free Delivery</div>
-                            <h3><a href="tel:8120703692">812-070-3692</a></h3>
+ <header id="header-part">
+        <!--===== HEADER TOP START =====-->
+        <div class="header-top pt-15 pb-15 d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-xl-3">
+                        <div class="phone text-center text-lg-left">
+                            <p>Phone : (+23480 33002735)</p>
                         </div>
                     </div>
-                </div>
-                <div class="upper-right pull-right clearfix">
-                    <div class="menu-area pull-left">
-                        <!--Mobile Navigation Toggler-->
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
+                    <div class="col-lg-5 col-xl-6">
+                        <div class="opening text-center">
+                            <p><i class="fa fa-map-marker"></i>9, Olasehinde Street, Ijapo Estate, Akure, Ondo State.</p>
                         </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="/">Home</a></li>
-                                    <li><a href="/about">About Us</a></li>
-                                    <li><a href="/services">Our Services</a></li>
-                                    <li><a href="/products">Our Products</a></li> 
-                                    <li><a href="contact">Contact</a></li>
+                    </div>
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="address text-center text-lg-right">
+                            <p>Opening Hours: 8AM - 8PM. MON - SAT</p>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> 
+        <!--===== HEADER TOP ENDS =====-->
+        
+        <!--===== NAVBAR START =====-->
+        <div class="navigation">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                           
+                            <a class="navbar-brand" href="index.html">
+                                <img src="front/images/logo.png" alt="Logo">
+                            </a> <!-- Logo -->
+                            
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button> <!-- toggle Button -->
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav m-auto">
+                                    <li class="nav-item">
+                                        <a href="{{url('Home')}}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('AboutUs')}}">About Us</a>
+                                    </li>
                                     
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="menu-right-content pull-left clearfix">
-                        <div class="search-box-outer">
-                            <div class="dropdown">
-                                <button class="search-box-btn" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-magnifying-glass"></i></button>
-                                <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
-                                    <li class="panel-outer">
-                                        <div class="form-container">
-                                            <form method="post" action="http://azim.commonsupport.com/Uaques/blog.html">
-                                                <div class="form-group">
-                                                    <input type="search" name="field-name" value="" placeholder="Search...." required="">
-                                                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    <li class="nav-item">
+                                        <a href="{{url('OurProducts')}}">Our Products</a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a href="{{url('ContactUs')}}">Contact Us</a>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="cart-box">
-                            <a href="shop.html">
-                                <i class="flaticon-online-shop"></i>
-                                <span>2</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <div class="cart-search">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-shopping-basket"></i><span>0</span></a></li>
+                                    <li><a id="search" href="#"><i class="fa fa-search"></i></a>
+                                        <div class="search-box">
+                                            <input type="search" placeholder="Search...">
+                                            <button type="button"><i class="fa fa-search"></i></button>
+                                        </div> 
+                                    </li>
+                                </ul>
+                            </div> <!-- cart search -->
+                        </nav>  <!-- nav -->
+                        
+                    </div> 
+                </div> <!-- row -->
+            </div> <!-- container -->
         </div>
-
-        <!--sticky Header-->
-        <div class="sticky-header">
-            <div class="auto-container clearfix">
-                <figure class="logo-box"><a href="index.html"><img src="front/images/small-logo.png" alt=""></a></figure>
-                <div class="menu-area">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
-                </div>
-            </div>
-        </div>
+        <!--===== NAVBAR ENDS =====-->
     </header>
-    <!-- main-header end -->

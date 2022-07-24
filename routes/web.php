@@ -18,6 +18,10 @@ use App\Http\Controllers\FrontController;
 */
 
 Route::get('/', [FrontController::class, 'index']);
+Route::get('/Home', [FrontController::class, 'index']);
+Route::get('/AboutUs', [FrontController::class, 'aboutUs']);
+Route::get('/OurProducts', [FrontController::class, 'ourProducts']);
+Route::get('/ContactUs', [FrontController::class, 'contactUs']);
 Route::get('Admin', [MainController::class, 'index']);
 Route::post('add', [MainController::class, 'add']);
 Route::post('postregcustomer', [MainController::class, 'insertCustomer']);
