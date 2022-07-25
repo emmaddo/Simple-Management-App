@@ -60,6 +60,58 @@
                             </div>
                             <div class="cart-search">
                                 <ul>
+
+                                @if(isset(Auth::user()->email))
+<!--Hello {{ Auth::user()->email }}-->
+<font color="#ff0000"><a href="{{url('CustomerLogout')}}">Logout</a></font>
+
+
+@endif
+
+@if(Session::has('message-login'))
+<div class="account-popup-area">
+        <div class="account-popup-wrapper">
+            <div class="account-popup-content">
+                <div class="account-top">
+                    <div class="account-title">
+                        <h3>{{ Session::get('message-login') }}</h3>
+                    </div>
+                    <a href="javascript:void(0)" class="popup-close">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<!--
+@if(Session::has('message-login'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message-login') }}</p>
+@endif
+-->
+@endif
+
+@if(Session::has('message-logout'))
+<div class="account-popup-area">
+        <div class="account-popup-wrapper">
+            <div class="account-popup-content">
+                <div class="account-top">
+                    <div class="account-title">
+                        <h3>{{ Session::get('message-logout') }}</h3>
+                    </div>
+                    <a href="javascript:void(0)" class="popup-close">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+@endif
+
                                     <li><a href="#"><i class="fa fa-shopping-basket"></i><span>0</span></a></li>
                                     <li><a id="search" href="#"><i class="fa fa-search"></i></a>
                                         <div class="search-box">

@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-content">
-                        <h3>Our Products</h3>
+                        <h3>Letest news</h3>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@ Nylon . Stretched and of good quality. Available in both Bulk & Retail.
                            
                         </div>
                         <div class="blog-cont pt-25">
-                            <a href="#"><h5>Dry Cleaners Poly Garment bags.</h5></a>
+                            <a href="#"><h5>Dry Cleaners Poly Garment bags</h5></a>
                             <p>Our continuous roll poly bags are a great choice for general dry-cleaning use to protect garments of all shapes and sizes.</p>
                         </div>
                     </div>
@@ -176,8 +176,8 @@ Nylon . Stretched and of good quality. Available in both Bulk & Retail.
                            
                         </div>
                         <div class="blog-cont pt-25">
-                            <a href="#"><h5>Ice Block Packing Nylon.</h5></a>
-                            <p>Discover our excellent and well packaged packaging outcomes with advanced ice block packaging nylon. This nylon are produced with top industry standard.</p>
+                            <a href="#"><h5>Nylon Garbage bags.</h5></a>
+                            <p>Explore quality and well-designed nylon trash bag for errands and promotional uses. These nylon trash bag are available in varied capacities and weight.</p>
                         </div>
                     </div>
                 </div>

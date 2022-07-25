@@ -485,7 +485,7 @@
    
     <!--====== ACCOUNT POPPUP PART START ======-->
     
-    <div class="account-popup-area">
+   <!-- <div class="account-popup-area">
         <div class="account-popup-wrapper">
             <div class="account-popup-content">
                 <div class="account-top">
@@ -538,7 +538,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     
     <!--====== ACCOUNT POPPUP PART ENDS ======-->
     

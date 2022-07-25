@@ -22,6 +22,10 @@ Route::get('/Home', [FrontController::class, 'index']);
 Route::get('/AboutUs', [FrontController::class, 'aboutUs']);
 Route::get('/OurProducts', [FrontController::class, 'ourProducts']);
 Route::get('/ContactUs', [FrontController::class, 'contactUs']);
+Route::get('/Register', [FrontController::class, 'userRegister']);
+Route::get('/login', [FrontController::class, 'userLogin']);
+Route::post('postCustomerRegister', [FrontController::class, 'insertCustomerRegister']);
+Route::post('postCustomerLogin', [FrontController::class, 'postCustomerLogin']);
 Route::get('Admin', [MainController::class, 'index']);
 Route::post('add', [MainController::class, 'add']);
 Route::post('postregcustomer', [MainController::class, 'insertCustomer']);
@@ -45,6 +49,7 @@ Route::get('Admin/Dashboard', [MainController::class, 'adminDashboard']);
 Route::get('Admin/Dashboard', [MainController::class, 'adminDashboardSupply']);
 Route::get('Admin/login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
+Route::get('CustomerLogout', [FrontController::class, 'CustomerLogout']);
 //Route::post('add', 'App\Http\Controllers\MainController@add');
 
 
