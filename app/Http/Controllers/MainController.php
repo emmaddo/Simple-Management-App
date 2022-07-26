@@ -107,26 +107,36 @@ function index(){
     //return $request->input();
     $request->validate([
         'name'=>'required',
+        'image_name' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
        // 'favoritecolor'=>'required',
         'price'=>'required'
         //'description'=>'required',
         
 
     ]);
+    /*
     $query= DB::table('Product')->insert([
         'name'=>$request->input('name'),
         'price'=>$request->input('price'),
-       // 'favoritecolor'=>$request->input('favoritecolor'),
+        'image_name'=>$request->file('image_name')->getClientOriginalName(),
+        //'image_path'=>$request->file('image_name'),
         'description'=>$request->input('description'),
         'status'=>'activated',
-        "datetime" =>date('Y-m-d H:i:s')
+        'datetime' =>date('Y-m-d H:i:s')
         
     ]);
-
+    */
+    //$image_path = $request->file('image_name')->store('public/front/images/product');
+    $filename = $request->file('image_name')->getClientOriginalName();
+    $image_path = $request->file('image_name')->storeAs('public/front/images/product', $filename);
     $product = new Product();
     $product->name=$request->input('name');
     $product->price=$request->input('price');
+    $product->image_name=$request->file('image_name')->getClientOriginalName();
     $product->description=$request->input('description');
+    
+    
+   $product->save();
     return back()->with('success','Product Registered Successfully');
     }
 
@@ -140,9 +150,7 @@ function index(){
         'amount'=>'required',
         'expdate'=>'required',
         'description'=>'required'
-        
-
-    ]);
+     ]);
     $query= DB::table('Expenses')->insert([
         'name'=>$request->input('name'),
         'amount'=>$request->input('amount'),

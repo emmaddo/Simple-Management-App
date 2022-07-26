@@ -170,18 +170,23 @@
             </div>
             
             <div class="row">
+
+
+
+            @foreach($getproducts as $getproduct)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="singel-products mt-30">
-                        <div class="products-image">src="{{asset('../images/pre-loader/loader-01.svg')}}"
-                            <img src="{{asset('../front/images/product/p-1.jpg')}}"alt="Products">
+                        <div class="products-image">
+                           <img src="{{asset('../storage/front/images/product/'.$getproduct->image_name)}}" alt="Products">
+                           <!-- <img src="{{ url('../storage/front/images/product/'.$getproduct->image_name) }}" alt="Products">-->
                             
                         </div>
                         <div class="products-contant">
-                            <h6 class="products-title"><a href="#">Bag of Satchet Water</a></h6>
+                            <h6 class="products-title"><a href="#">{{$getproduct->name}}</a></h6>
                             <div class="price-rating d-flex justify-content-between">
                                 <div class="price">
-                                    <span class="regular-price">N170</span>
-                                    <span class="discount-price">N190</span>
+                                    <span class="regular-price">N{{$getproduct->price}}</span>
+                                    <!--<span class="discount-price">N190</span>-->
                                 </div>
                                 <div class="rating">
                                     <ul>
@@ -201,104 +206,9 @@
                     </div>
                 </div>
 				
-				<div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="singel-products mt-30">
-                        <div class="products-image">
-                            <img src="{{asset('../front/images/product/p-2.jpg')}}"alt="Products">
-							<div class="new-sele">
-                                <a href="#">Coming Soon</a>
-                            </div>
-                        </div>
-                        <div class="products-contant">
-                            <h6 class="products-title"><a href="#">Pure Water Packing Nylon </a></h6>
-                            <div class="price-rating d-flex justify-content-between">
-                                <div class="price">
-                                    <span class="regular-price">N150</span>
-                                    <!--<span class="discount-price">$215</span>-->
-                                </div>
-                                <div class="rating">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="text">Maprolen Qualitative Pure Water Packaging Nylon</p>
-                            <div class="products-cart">
-                                <a class="cart-add" href="#"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="singel-products mt-30">
-                        <div class="products-image">
-                            <img src="{{asset('../front/images/product/p-5.jpg')}}"alt="Products">
-							<div class="new-sele">
-                                <a href="#">Coming Soon</a>
-                            </div>
-                        </div>
-                        <div class="products-contant">
-                            <h6 class="products-title"><a href="#">Shrink wrap </a></h6>
-                            <div class="price-rating d-flex justify-content-between">
-                                <div class="price">
-                                    <span class="regular-price">$259</span>
-                                    <span class="discount-price">$215</span>
-                                </div>
-                                <div class="rating">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="text">Our Qualitative Shrink wrap</p>
-                            <div class="products-cart">
-                                <a class="cart-add" href="#"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="singel-products mt-30">
-                        <div class="products-image">
-                            <img src="{{asset('../front/images/product/p-3.jpg')}}"alt="Products">
-							<div class="new-sele">
-                                <a href="#">Coming Soon</a>
-                            </div>
-                            
-                        </div>
-                        <div class="products-contant">
-                            <h6 class="products-title"><a href="#">Ice Block Packing Nylon</a></h6>
-                            <div class="price-rating d-flex justify-content-between">
-                                <div class="price">
-                                    <span class="regular-price">$259</span>
-                                    <span class="discount-price">$215</span>
-                                </div>
-                                <div class="rating">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="text">Ice Block Packing Nylon</p>
-                            <div class="products-cart">
-                                <a class="cart-add" href="#"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+			@endforeach	
+
+
                 
                 
             </div>

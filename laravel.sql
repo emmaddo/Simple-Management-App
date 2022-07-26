@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 16, 2022 at 09:49 AM
+-- Generation Time: Jul 26, 2022 at 12:55 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -58,14 +58,6 @@ CREATE TABLE `customer` (
   `status` varchar(20) DEFAULT NULL,
   `datetime` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`id`, `name`, `email`, `password`, `phone`, `status`, `datetime`) VALUES
-(2, 'Ado Ibrahim', 'ermsapp@gmail.com', '$2y$10$XPLpOBXSW6MqpM2HnFWTCuCJPnt8riocRE2fH2xqj.S5MMUeMKlhW', '08036909804', NULL, NULL),
-(3, 'Ado Ibrahim', 'egrmsapp@gmail.com', '$2y$10$TXMHZDXF8zsI4R2eZ.V/Tea72q6oZH8SLwStV.uxhhH9vTuflbunq', '08036909804', 'activated', '2022-07-14 10:06:46');
 
 -- --------------------------------------------------------
 
@@ -167,21 +159,25 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `product` (
   `id` int(6) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
+  `image_path` varchar(500) DEFAULT NULL,
   `price` varchar(20) DEFAULT NULL,
+  `image_name` varchar(500) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `status` varchar(20) NOT NULL,
-  `datetime` varchar(20) NOT NULL
+  `status` varchar(20) DEFAULT NULL,
+  `datetime` varchar(20) DEFAULT NULL,
+  `updated_at` varchar(20) DEFAULT NULL,
+  `created_at` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `price`, `description`, `status`, `datetime`) VALUES
-(4, 'Pack of Maprolen Bottle Water', '1800', NULL, 'activated', '2022-07-14 16:10:45'),
-(5, 'Pack of Maprolen Bottle Water', '1800', NULL, 'activated', '2022-07-14 16:14:36'),
-(6, 'Oluwaseun Owookade', '677', 'A bag of Maprolen Pure Water containing 20 pieces', 'activated', '2022-07-14 16:14:56'),
-(7, 'Oluwaseun Owookade', '677', 'A bag of Maprolen Pure Water containing 20 pieces', 'activated', '2022-07-14 16:16:25');
+INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `image_name`, `description`, `status`, `datetime`, `updated_at`, `created_at`) VALUES
+(73, 'Bag of Satchet Water', NULL, '200', 'bag of pure water.jpg', 'A bag of Maprolen Pure Water containing 20 pieces', NULL, NULL, '2022-07-26 11:21:44', '2022-07-26 11:21:44'),
+(74, 'Pure Water Packing Nylon', NULL, '2700', 'pure water nylon.jpg', 'Qualitative Pure Water Packing Nylon', NULL, NULL, '2022-07-26 11:22:35', '2022-07-26 11:22:35'),
+(75, 'Ice Bag', NULL, '1500', 'icebag.jpg', 'Our Qualitaive Ice Bag', NULL, NULL, '2022-07-26 12:39:34', '2022-07-26 12:39:34'),
+(76, 'Shrimp Wrap', NULL, '2000', 'shrimp wrap.jpg', 'Pack of Qualitative Shrimp Wrap', NULL, NULL, '2022-07-26 12:41:27', '2022-07-26 12:41:27');
 
 -- --------------------------------------------------------
 
@@ -222,6 +218,7 @@ CREATE TABLE `users` (
   `usertype` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -234,8 +231,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `status`, `username`, `email_verified_at`, `password`, `remember_token`, `favoritecolor`, `created_at`, `updated_at`) VALUES
-(2, 'Ado Ibrahim', 'ermsapp@gmail.com', 'Super Admin', 'Activated', NULL, NULL, '$2y$10$01nhQc9dqWcZ7D5GVU/CuujLvBpe01RsOnc1W6v5aPMBRjAgvit9a', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `status`, `username`, `phone`, `email_verified_at`, `password`, `remember_token`, `favoritecolor`, `created_at`, `updated_at`) VALUES
+(2, 'Ado Ibrahim', 'ermsapp@gmail.com', 'Super Admin', 'Activated', NULL, '', NULL, '$2y$10$01nhQc9dqWcZ7D5GVU/CuujLvBpe01RsOnc1W6v5aPMBRjAgvit9a', NULL, NULL, NULL, NULL),
+(3, 'Ado Ibrahim', 'y2kemmaddo@yahoo.com', 'customer', 'activated', NULL, '08036909804', NULL, '$2y$10$VV8UWF0XASIDZhLNLjr7eeF46mFy2DzCVJ.C4w0BLrjmg3kgjawI2', NULL, NULL, '2022-07-25 11:12:25', NULL);
 
 --
 -- Indexes for dumped tables
@@ -313,13 +311,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `crud`
 --
 ALTER TABLE `crud`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `expenses`
@@ -349,7 +347,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -361,7 +359,7 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

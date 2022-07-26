@@ -81,7 +81,7 @@
             {{session::get('fail')}}
             </div>
           @endif
-                <form method="POST" action="/postregproduct">
+                <form method="POST" action="/postregproduct" enctype="multipart/form-data">
                    @csrf 
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputEmail1">Product Name</label>
@@ -96,6 +96,12 @@
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputPassword1">Product Description</label>
                     <input type="text" name="description" class="form-control" placeholder="Enter Product Description">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="exampleInputPassword1">Product Image</label>
+                    <input type="file" name="image_name" class="form-control" placeholder="Select Image">
+                    <span style="color:red">@error('image_name'){{$message}} @enderror</span> 
                   </div>
 
                  
@@ -113,7 +119,7 @@
               <div class="card-body">
                 <div class="d-block d-md-flex justify-content-between">
                   <div class="d-block">
-                    <h5 class="card-title pb-0 border-0">Registered Customers</h5>
+                    <h5 class="card-title pb-0 border-0">Registered Products</h5>
                   </div>
                   <div class="d-block d-md-flex clearfix sm-mt-20">
                     <div class="clearfix">
@@ -139,7 +145,7 @@
                       <th>SN</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Status</th>
+                        <th>Image</th>
                         
 
 
@@ -160,7 +166,13 @@
                         <td>
                           <span class="text-warning">{{$post->price}}</span>
                         </td>
-                        <td>{{$post->status}}</td>
+                        <!--<td>{{$post->status}}</td>-->
+                        <td>
+                        <img src="{{ url('../storage/front/images/product/'.$post->image_name) }}"
+ style="height: 100px; width: 150px;">
+                       <!-- <img src="{{asset('../front/images/product/'.$post->image_name)}}"
+ style="height: 100px; width: 150px;">-->
+                        </td>
                         
                         <td><a class="pe-2" href="#"> <i class="fa fa-pencil"></i></a> <a href="#"> <i class="fa fa-trash-o text-danger"></i></a></td>
                       </tr>

@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\customer;
 use App\Models\users;
+use App\Models\Product;
 
 class FrontController extends Controller
 {
     public function index(){
-       
-        return view('Front.index');
- 
-     }
+      //get products and diplay on landing page
+      $getproducts= DB::table('Product')->get();
+      return view('Front.index', compact('getproducts'));
+       }
 	 
 	 public function aboutUs(){
        
