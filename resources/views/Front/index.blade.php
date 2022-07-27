@@ -185,7 +185,7 @@
                             <h6 class="products-title"><a href="#">{{$getproduct->name}}</a></h6>
                             <div class="price-rating d-flex justify-content-between">
                                 <div class="price">
-                                    <span class="regular-price">N{{$getproduct->price}}</span>
+                                    <span class="regular-price">N{{number_format($getproduct->price,2)}}</span>
                                     <!--<span class="discount-price">N190</span>-->
                                 </div>
                                 <div class="rating">
@@ -200,7 +200,7 @@
                             </div>
                             <p class="text">Maprolen well packaged bag of Satchet Water</p>
                             <div class="products-cart">
-                                <a class="cart-add" href="#"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <a class="cart-add" href="#"><i class="fa fa-shopping-cart"></i> <!--Add to cart-->Coming Soon</a>
                             </div>
                         </div>
                     </div>

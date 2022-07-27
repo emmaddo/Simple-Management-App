@@ -159,8 +159,10 @@
                             <div class="singel-form pt-25">
                                <ul class="remember">
                                    <li>
-                                       <input type="checkbox" name="checkbox" id="checkbox">
-                                        <label for="checkbox"><span></span>Remember Me</label>
+<!--<input type="checkbox" name="checkbox" id="checkbox">
+                                        <label for="checkbox"><span></span>Remember Me</label>-->
+                                        <label for="checkbox"><span></span><a href="{{url('Register')}}">Register Now</a></label>
+                                       
                                    </li>
                                    <li>
                                        <p>Forgot <a href="#">password?</a></p>

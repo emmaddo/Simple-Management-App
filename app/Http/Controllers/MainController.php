@@ -23,17 +23,17 @@ function index(){
     }
 
     public function viewRegAdmin(){
-        $posts= DB::table('users')->get();
+        $posts= DB::table('users')->get()->where('usertype', '!=', 'customer');
         return view('Admin.viewadmin', compact('posts'));
     }
 
     public function formRegAdmin(){
-        $posts= DB::table('users')->get();
+        $posts= DB::table('users')->get()->where('usertype', '!=', 'customer');;
         return view('Admin.regadmin', compact('posts'));
     }
 
     public function viewRegCustomer(){
-        $posts= DB::table('customer')->get();
+        $posts= DB::table('users')->get()->where('usertype', 'customer');
         return view('Admin.viewcustomer', compact('posts'));
     }
 
@@ -74,28 +74,29 @@ function index(){
         $request->validate([
             'name'=>'required',
            // 'favoritecolor'=>'required',
-            'email'=>'required|email|unique:customer',
+            'email'=>'required|email|unique:users',
             'password'=>'required',
             'phone'=>'required'
 
         ]);
-        $query= DB::table('customer')->insert([
+        $query= DB::table('users')->insert([
             'name'=>$request->input('name'),
             'phone'=>$request->input('phone'),
            // 'favoritecolor'=>$request->input('favoritecolor'),
             'email'=>$request->input('email'),
             'status'=>'activated',
-            "datetime" =>date('Y-m-d H:i:s'),
+            'usertype'=>'customer',
+//"datetime" =>date('Y-m-d H:i:s'),
             'password'=>Hash::make($request->input('password'))
         ]);
 
-        $customer = new customer();
+        $customer = new Users();
         $customer->name=$request->input('name');
         $customer->phone=$request->input('phone');
         $customer->email=$request->input('email');
         
         $customer->password=$request->input('password');
-        //$customer->save();
+        $customer->save();
         
         
         return back()->with('success','Customer Registered Successfully');
@@ -211,7 +212,7 @@ function index(){
 
 //this function is to fetch all registered customers from customer table and display
 public function viewCustomer(){
-    $posts= DB::table('customer')->get();
+    $posts= DB::table('users')->get()->where('usertype', 'customer');
     //var_dump($posts);
 return view('Admin.RegCustomer', compact('posts'));
 }
@@ -219,14 +220,19 @@ return view('Admin.RegCustomer', compact('posts'));
 
 
     public function editPost($id){
-        $editpost= DB::table('customer')->where('id', $id)->first();
+        $editpost= DB::table('users')->where('id', $id)->first();
             return view('Admin.editcustomer', compact('editpost'));
             }
-
+            public function editProduct($id){
+                $editproduct= DB::table('Product')->where('id', $id)->first();
+                    return view('Admin.editproduct', compact('editproduct'));
+                    }
+            
+                    
     public function updateRecords(Request $request){
         //return $request->input();
         //var_dump($request);
-        $upquery= DB::table('customer')->where('id', $request->id)->update([
+        $upquery= DB::table('users')->where('id', $request->id)->update([
             'id'=>$request->id,
             'name'=>$request->input('name'),
            // 'email'=>$request->input('email'),
@@ -241,17 +247,58 @@ return view('Admin.RegCustomer', compact('posts'));
 
     }
 
+    public function updateProduct($id, Request $request){
+       //return $request->input();
+    $request->validate([
+        'name'=>'required',
+        'image_name' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+       // 'favoritecolor'=>'required',
+        'price'=>'required'
+        //'description'=>'required',
+        
+
+    ]);
+
+    //$product = new Product();
+    $product = Product::findOrFail($request->id);
+    if(!empty($request->image_name)){
+        $filename = $request->file('image_name')->getClientOriginalName();
+        $image_path = $request->file('image_name')->storeAs('public/front/images/product', $filename);
+        $product->image_name=$request->file('image_name')->getClientOriginalName();
+    }
+    $product->name=$request->input('name');
+    $product->price=$request->input('price');
+    $product->description=$request->input('description');
+    
+    
+   $product->save();
+    return back()->with('success','Product Updated Successfully'); 
+
+    }
+
 
     public function deletePost($id){
-    $delquery= DB::table('customer')->where('id', $id)->delete();
+    $delquery= DB::table('users')->where('id', $id)->delete();
     if($delquery){
-        return back()->with('deleted','Customer Data Deleted Sussessfully');
+        return back()->with('success','Customer Data Deleted Sussessfully');
     }
     else{
-        return back()->with('notedeleted','Something went wrong');
+        return back()->with('success','Something went wrong');
     }
 
     }
+
+    public function deleteProduct($id){
+        $delquery= DB::table('Product')->where('id', $id)->delete();
+        if($delquery){
+            return back()->with('success','Product Deleted Sussessfully');
+        }
+        else{
+            return back()->with('fail','Something went wrong');
+        }
+    
+        }
+
 //combining both queries into one method
 public function adminDashboardSupply() {
         $customerCount = customer::count();

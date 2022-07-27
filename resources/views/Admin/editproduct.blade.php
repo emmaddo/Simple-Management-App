@@ -8,7 +8,7 @@
 <meta name="description" content="Webmin - Bootstrap 5 & Angular 5 Admin Dashboard Template" />
 <meta name="author" content="potenzaglobalsolutions.com" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Register Products</title>
+<title>Edit Product</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{asset('../images/favicon.ico')}}" />
@@ -50,7 +50,7 @@
           <div class="row">
             <div class="col-sm-6">
               <h4 class="mb-0"> 
-            Register Products
+            Edit Product
 
               </h4>
             </div>
@@ -63,11 +63,11 @@
           </div>
         </div>
         <div class="row">
-        <div class="col-xl-6 mb-30">
+        <div class="col-xl-12 mb-30">
 
         <div class="card card-statistics mb-30">
               <div class="card-body">
-                <h5 class="card-title">Register Products</h5>
+                <h5 class="card-title">Edit Products</h5>
                 @if(Session::get('success'))
             <div class="alert alert-success">
 
@@ -81,120 +81,40 @@
             {{session::get('fail')}}
             </div>
           @endif
-                <form method="POST" action="/postregproduct" enctype="multipart/form-data">
-                   @csrf 
+                <form method="POST" action="/Admin/updateproduct/{{$editproduct->id}}" enctype="multipart/form-data">
+                   @csrf
+                   
+                   <center><img src="{{ url('../storage/front/images/product/'.$editproduct->image_name) }}"
+ style="height: 100px; width: 150px;"></center>
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputEmail1">Product Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Product Name">
+                    <input type="text" name="name" value="{{$editproduct->name}}" class="form-control" placeholder="Product Name">
  </div>
                   
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputPassword1">Product Price</label>
-                    <input type="price" name="price" class="form-control" placeholder="Enter Price">
+                    <input type="price" name="price" value="{{$editproduct->price}}" class="form-control" placeholder="Enter Price">
                   </div>
 
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputPassword1">Product Description</label>
-                    <input type="text" name="description" class="form-control" placeholder="Enter Product Description">
+                    <input type="text" name="description" value="{{$editproduct->description}}" class="form-control" placeholder="Enter Product Description">
                   </div>
 
                   <div class="mb-3">
                     <label class="form-label" for="exampleInputPassword1">Product Image</label>
-                    <input type="file" name="image_name" class="form-control" placeholder="Select Image">
+                    <input type="file" name="image_name" class="form-control" placeholder="Select Image" >
                     <span style="color:red">@error('image_name'){{$message}} @enderror</span> 
                   </div>
-
-                 
                   
-                  <button type="submit" class="btn btn-primary">Register Product</button>
+                  
+                  <button type="submit" class="btn btn-primary">Edit Product</button>
                 </form>
               </div>
             </div>
 </div>
 
-
-<div class="col-xl-6 mb-30">
-
-<div class="card card-statistics h-100">
-              <div class="card-body">
-                <div class="d-block d-md-flex justify-content-between">
-                  <div class="d-block">
-                    <h5 class="card-title pb-0 border-0">Registered Products</h5>
-                  </div>
-                  <div class="d-block d-md-flex clearfix sm-mt-20">
-                    <div class="clearfix">
-                      <div class="box">
-                        <select class="fancyselect sm-mb-20 mr-20">
-                          <option value="1">Some option</option>
-                          <option value="2">Another option</option>
-                          <option value="3">A option</option>
-                          <option value="4">Potato</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="widget-search ms-0 clearfix">
-                      <i class="fa fa-search"></i>
-                      <input type="search" class="form-control" placeholder="Search....">
-                    </div>
-                  </div>
-                </div>
-                <div class="table-responsive mt-20">
-                  <table class="table center-aligned-table">
-                    <thead>
-                      <tr class="text-dark">
-                      <th>SN</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        
-
-
-
-                        
-                        
-                        <th>  </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($posts as $post)
-
-                      <tr>
-                       <!-- <td> <img class="img-fluid avatar-small" src="images/team/05.jpg" alt=""> </td>-->
-                       <td>{{$post->id}}</td>
-                       <td>{{$post->name}}</td>
-                        
-                        <td>
-                          <span class="text-warning">{{$post->price}}</span>
-                        </td>
-                        <!--<td>{{$post->status}}</td>-->
-                        <td>
-                        <img src="{{ url('../storage/front/images/product/'.$post->image_name) }}"
- style="height: 100px; width: 150px;">
-                       <!-- <img src="{{asset('../front/images/product/'.$post->image_name)}}"
- style="height: 100px; width: 150px;">-->
-                        </td>
-                        
-                        <td><a class="pe-2" href="{{url('Admin/edit-product/'.$post->id)}}"> <i class="fa fa-pencil"></i></a> <a href="{{url('Admin/delete-product/'.$post->id)}}"> <i class="fa fa-trash-o text-danger"></i></a></td>
-                       </tr>
-                      @endforeach
-                      
-                      
-                    </tbody>
-                  </table>
-                </div>
-                <div class="sm-mt-20">
-                  <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                      <li class="page-item "><a class="page-link" href="#">Previous</a></li>
-                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>   
+  
 </div>
           
         </div>

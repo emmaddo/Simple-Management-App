@@ -64,9 +64,11 @@
                                 @if(isset(Auth::user()->email))
 <!--Hello {{ Auth::user()->email }}-->
 <font color="#ff0000"><a href="{{url('CustomerLogout')}}">Logout</a></font>
-
-
+@else
+<font color="#ff0000"><a href="{{url('login')}}">Login</a></font>
 @endif
+
+
 
 @if(Session::has('message-login'))
 <div class="account-popup-area">
